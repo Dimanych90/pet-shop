@@ -10,6 +10,15 @@
 @endsection
 
 @section('content')
+
+    @if($messageSuccessOrder)
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{$messageSuccessOrder}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
         <div class="breadcrumb-area pt-95 pb-95 bg-img" style="background-image:url(../../../public/img/banner/banner-2.jpg);">
             <div class="container">
                 <div class="breadcrumb-content text-center">
@@ -31,9 +40,9 @@
                             <div id="faq" class="panel-group">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h5 class="panel-title"><span>2</span> <a data-toggle="collapse" data-parent="#faq" href="#payment-2">billing information</a></h5>
+                                        <h5 class="panel-title"><span>1</span> <a data-toggle="collapse" data-parent="#faq" href="#payment-1">billing information</a></h5>
                                     </div>
-                                    <div id="payment-2" class="panel-collapse collapse">
+                                    <div id="payment-1" class="panel-collapse collapse">
                                         <form method="post" action="{{route('pet-shop/make-order')}}">
                                             @csrf
                                         <div class="panel-body">
@@ -144,183 +153,17 @@
                                         </form>
                                     </div>
                                 </div>
+
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h5 class="panel-title"><span>3</span> <a data-toggle="collapse" data-parent="#faq" href="#payment-3">shipping information</a></h5>
+                                        <h5 class="panel-title"><span>2</span> <a data-toggle="collapse" data-parent="#faq" href="#payment-2">History Of Order</a></h5>
                                     </div>
-                                    <div id="payment-3" class="panel-collapse collapse ">
-                                        <div class="panel-body">
-                                            <div class="shipping-information-wrapper">
-                                                <div class="shipping-info-2">
-                                                    <span> Address will go here. </span>
-                                                    <span>T: 012 345 678 </span>
-                                                </div>
-                                                <div class="edit-address">
-                                                    <a href="#">Edit Address</a>
-                                                </div>
-                                                <div class="billing-select">
-                                                    <select class="email s-email s-wid">
-                                                        <option>Select Your Address</option>
-                                                        <option>Add New Address</option>
-                                                        <option>Boot Experts, Bangladesh</option>
-                                                    </select>
-                                                </div>
-                                                <div class="ship-wrapper">
-                                                    <div class="single-ship">
-                                                        <input type="checkbox" checked="" value="address" name="address">
-                                                        <label>Use Billing Address</label>
-                                                    </div>
-                                                </div>
-                                                <div class="billing-back-btn">
-                                                    <div class="billing-back">
-                                                        <a href="#"><i class="ti-arrow-up"></i> back</a>
-                                                    </div>
-                                                    <div class="billing-btn">
-                                                        <button type="submit">Continue</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h5 class="panel-title"><span>4</span> <a data-toggle="collapse" data-parent="#faq" href="#payment-4">Shipping method</a></h5>
-                                    </div>
-                                    <div id="payment-4" class="panel-collapse collapse ">
-                                        <div class="panel-body">
-                                            <div class="shipping-method-wrapper">
-                                                <div class="shipping-method">
-                                                    <p>Flat Rate</p>
-                                                    <p>Fixed $40.00</p>
-                                                </div>
-                                                <div class="billing-back-btn">
-                                                    <div class="billing-back">
-                                                        <a href="#"><i class="ti-arrow-up"></i> back</a>
-                                                    </div>
-                                                    <div class="billing-btn">
-                                                        <button type="submit">Continue</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h5 class="panel-title"><span>5</span> <a data-toggle="collapse" data-parent="#faq" href="#payment-5">payment information</a></h5>
-                                    </div>
-                                    <div id="payment-5" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <div class="payment-info-wrapper">
-                                                <div class="ship-wrapper">
-                                                    <div class="single-ship">
-                                                        <input type="radio" checked="" value="address" name="address">
-                                                        <label>Check / Money order </label>
-                                                    </div>
-                                                    <div class="single-ship">
-                                                        <input type="radio" value="dadress" name="address">
-                                                        <label>Credit Card (saved) </label>
-                                                    </div>
-                                                </div>
-                                                <div class="payment-info">
-                                                    <div class="row">
-                                                        <div class="col-lg-6 col-md-6">
-                                                            <div class="billing-info">
-                                                                <label>Name on Card </label>
-                                                                <input type="text">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6">
-                                                            <div class="billing-select card-mrg">
-                                                                <label>Credit Card Type</label>
-                                                                <select>
-                                                                    <option>American Express</option>
-                                                                    <option>Visa</option>
-                                                                    <option>MasterCard</option>
-                                                                    <option>Discover</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-12 col-md-12">
-                                                            <div class="billing-info">
-                                                                <label>Credit Card Number </label>
-                                                                <input type="text">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="expiration-date">
-                                                        <label>Expiration Date </label>
-                                                        <div class="row">
-                                                            <div class="col-lg-6 col-md-6">
-                                                                <div class="billing-select month-mrg">
-                                                                    <select>
-                                                                        <option>Month</option>
-                                                                        <option>January</option>
-                                                                        <option>February</option>
-                                                                        <option> March</option>
-                                                                        <option>April</option>
-                                                                        <option> May</option>
-                                                                        <option>June</option>
-                                                                        <option>July</option>
-                                                                        <option>August</option>
-                                                                        <option>September</option>
-                                                                        <option> October</option>
-                                                                        <option> November</option>
-                                                                        <option> December</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6 col-md-6">
-                                                                <div class="billing-select">
-                                                                    <select>
-                                                                        <option>Year</option>
-                                                                        <option>2015</option>
-                                                                        <option>2016</option>
-                                                                        <option>2017</option>
-                                                                        <option>2018</option>
-                                                                        <option>2019</option>
-                                                                        <option>2020</option>
-                                                                        <option>2021</option>
-                                                                        <option>2022</option>
-                                                                        <option>2023</option>
-                                                                        <option>2024</option>
-                                                                        <option>2025</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-12 col-md-12">
-                                                            <div class="billing-info">
-                                                                <label>Card Verification Number</label>
-                                                                <input type="text">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="billing-back-btn">
-                                                    <div class="billing-back">
-                                                        <a href="#"><i class="ti-arrow-up"></i> back</a>
-                                                    </div>
-                                                    <div class="billing-btn">
-                                                        <button type="submit">Continue</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h5 class="panel-title"><span>6</span> <a data-toggle="collapse" data-parent="#faq" href="#payment-6">Order Review</a></h5>
-                                    </div>
-                                    <div id="payment-6" class="panel-collapse collapse">
+                                    <div id="payment-2" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             <div class="order-review-wrapper">
                                                 <div class="order-review">
                                                     <div class="table-responsive">
+                                                        @foreach($orders as $order)
                                                         <table class="table">
                                                             <thead>
                                                                 <tr>
@@ -330,111 +173,41 @@
                                                                     <th class="width-4">Subtotal</th>
                                                                 </tr>
                                                             </thead>
+                                                            @foreach($order->cart_data as $cart_data)
                                                             <tbody>
                                                                 <tr>
                                                                     <td>
                                                                         <div class="o-pro-dec">
-                                                                            <p>Fusce aliquam</p>
+                                                                            <p>{{$cart_data['name']}}</p>
                                                                         </div>
                                                                     </td>
                                                                     <td>
                                                                         <div class="o-pro-price">
-                                                                            <p>$236.00</p>
+                                                                            <p>$ {{$cart_data['price']}}</p>
                                                                         </div>
                                                                     </td>
                                                                     <td>
                                                                         <div class="o-pro-qty">
-                                                                            <p>2</p>
+                                                                            <p>{{$cart_data['quantity']}}</p>
                                                                         </div>
                                                                     </td>
                                                                     <td>
                                                                         <div class="o-pro-subtotal">
-                                                                            <p>$236.00</p>
+                                                                            <p>{{$cart_data['price'] * $cart_data['quantity']}}</p>
                                                                         </div>
                                                                     </td>
                                                                 </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <div class="o-pro-dec">
-                                                                            <p>Primis in faucibus</p>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="o-pro-price">
-                                                                            <p>$265.00</p>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="o-pro-qty">
-                                                                            <p>3</p>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="o-pro-subtotal">
-                                                                            <p>$265.00</p>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <div class="o-pro-dec">
-                                                                            <p>Etiam gravida</p>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="o-pro-price">
-                                                                            <p>$363.00</p>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="o-pro-qty">
-                                                                            <p>2</p>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="o-pro-subtotal">
-                                                                            <p>$363.00</p>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <div class="o-pro-dec">
-                                                                            <p>Quisque in arcu</p>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="o-pro-price">
-                                                                            <p>$328.00</p>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="o-pro-qty">
-                                                                            <p>2</p>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="o-pro-subtotal">
-                                                                            <p>$328.00</p>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+
                                                             </tbody>
+                                                            @endforeach
                                                             <tfoot>
                                                                 <tr>
-                                                                    <td colspan="3">Subtotal </td>
-                                                                    <td colspan="1">$4,001.00</td>
-                                                                </tr>
-                                                                <tr class="tr-f">
-                                                                    <td colspan="3">Shipping & Handling (Flat Rate - Fixed</td>
-                                                                    <td colspan="1">$45.00</td>
-                                                                </tr>
-                                                                <tr>
                                                                     <td colspan="3">Grand Total</td>
-                                                                    <td colspan="1">$4,722.00</td>
+                                                                    <td colspan="1">$ {{$order->total_sum}}</td>
                                                                 </tr>
                                                             </tfoot>
                                                         </table>
+                                                        @endforeach
                                                     </div>
                                                     <div class="billing-back-btn">
                                                         <span>
